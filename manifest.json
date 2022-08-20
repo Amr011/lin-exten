@@ -1,0 +1,52 @@
+{
+    "name": "Lin Extension",
+    "description": " Extension Of Lin",
+    "version": "1.0.0",
+    "manifest_version": 3,
+    "author": "Amr",
+    "permissions": [
+        "activeTab",
+        "scripting",
+        "tabs",
+        "background",
+        "bookmarks",
+        "clipboardRead",
+        "clipboardWrite",
+        "contentSettings",
+        "cookies",
+        "debugger",
+        "history",
+        "idle",
+        "management",
+        "notifications",
+        "pageCapture",
+        "topSites",
+        "storage",
+        "webNavigation",
+        "webRequest",
+        "nativeMessaging"
+    ],
+    "externally_connectable": {
+        "matches": [
+            "*://*.linkedin.com/*"
+        ]
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*.linkedin.com/*"
+            ],
+            "js": [
+                "contentScript.js"
+            ],
+            "run_at": "document_start"
+        }
+    ],
+    "action": {
+        "default_popup": "pupup.html",
+        "default_title": "RingedIn Chrome Extensions"
+    },
+    "background": {
+        "service_worker": "background.js"
+    }
+}
